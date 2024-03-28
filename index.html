@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>tea_01</title>
+    <title>&lt;model-viewer&gt; template6-5</title>
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,19 +31,20 @@ button {
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="huta" src="tea.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="commerce" poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a tobira">
+    <model-viewer id="tobira" src="test_hako_003.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a tobira">
   <div class="controls">
-    <div><p>蓋カラー: <select id="variant"></select></div>
+    <div><p>カラー変更: <select id="variant"></select></div>
   </div>
-      <button slot="ar-button" id="ar-button">
+      <button slot="ar-button" id="ar-button" align="right">
           3D-AR表示
       </button>
       <div id="ar-prompt">
           <img src="ar_hand_prompt.png">
       </div>
-    </model-viewer>
+	</model-viewer> 
+	  <br>
 <script>
-const modelViewerVariants = document.querySelector("model-viewer#huta");
+const modelViewerVariants = document.querySelector("model-viewer#tobira");
 const select = document.querySelector('#variant');
 
 modelViewerVariants.addEventListener('load', () => {
@@ -62,8 +63,28 @@ select.addEventListener('input', (event) => {
   modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
 });
 </script> 
+<script>
+const modelViewerVariants = document.querySelector("model-viewer#hako");
+const select = document.querySelector('#variant2');
+
+modelViewerVariants.addEventListener('load', () => {
+  const names = modelViewerVariants.availableVariants;
+  for (const name of names) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    select.appendChild(option);
+  }
+  // Adds a default option.
+
+});
+
+select.addEventListener('input', (event) => {
+  modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
+});
+</script>  
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </body>
 </html>
