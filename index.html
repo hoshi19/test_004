@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>&lt;model-viewer&gt; template6-7</title>
+    <title>&lt;model-viewer&gt; template6-6</title>
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,18 +14,10 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  bottom: 16px;
+  bottom: 8px;
   left: 8px;
 }
-.nidanme {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  bottom: -10px;
-  left: 8px;
-}
-	  
+
 #texture-name,
 #image-name {
   font-size: 0.8em;
@@ -41,10 +33,7 @@ button {
     <!-- <model-viewer> HTML element -->
     <model-viewer id="tobira" src="test_hako_003.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a tobira">
   <div class="controls">
-    <div><p>扉変更: <select id="variant"></select></div>
-  </div>
-  <div class="nidanme">
-    <div><p>箱変更: <select id="hako"></select></div>
+    <div><p>色変更: <select id="variant"></select></div>
   </div>
       <button slot="ar-button" id="ar-button">
           3D-AR
@@ -54,7 +43,6 @@ button {
       </div>
 	</model-viewer> 
 	  <br>
-	 
 <script>
 const modelViewerVariants = document.querySelector("model-viewer#tobira");
 const select = document.querySelector('#variant');
@@ -77,7 +65,7 @@ select.addEventListener('input', (event) => {
 </script> 
 <script>
 const modelViewerVariants = document.querySelector("model-viewer#hako");
-const select = document.querySelector('#hako');
+const select = document.querySelector('#variant2');
 
 modelViewerVariants.addEventListener('load', () => {
   const names = modelViewerVariants.availableVariants;
