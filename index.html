@@ -43,7 +43,7 @@ button {
   <div class="controls">
     <div><p>扉変更: <select id="variant"></select></div>
   </div>
-  <div class="hako">
+  <div class="controls">
     <div><p>箱変更: <select id="hako"></select></div>
   </div>
       <button slot="ar-button" id="ar-button">
@@ -77,7 +77,7 @@ select.addEventListener('input', (event) => {
 </script> 
 <script>
 const modelViewerVariants = document.querySelector("model-viewer#hako");
-const select = document.querySelector('#haok');
+const select = document.querySelector('#hako');
 
 modelViewerVariants.addEventListener('load', () => {
   const names = modelViewerVariants.availableVariants;
